@@ -90,7 +90,6 @@ namespace MatchingGame
                 textBlock.Visibility = Visibility.Hidden;
                 findingMatch = false;
                 matchesFound++;
-                matchesFoundLabel.Text = Convert.ToString(matchesFound);
             }
             else
             {
