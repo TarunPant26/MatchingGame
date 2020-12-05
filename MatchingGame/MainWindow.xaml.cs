@@ -33,7 +33,8 @@ namespace MatchingGame
         private void Timer_Tick(object sender, EventArgs e)
         {
             tenthsOfSecondsElapsed++;
-            timeTextBlock.Text = (tenthsOfSecondsElapsed / 10F).ToString("0.0s");
+            timeTextBlock.Text = "Time: "+(tenthsOfSecondsElapsed / 10F).ToString("0.0s");
+
             if (matchesFound == 8)
             {
                 timer.Stop();
@@ -59,7 +60,7 @@ namespace MatchingGame
 
             foreach (TextBlock textBlock  in mainGrid.Children.OfType<TextBlock>())
             {
-                if (textBlock.Name!= "timeTextBlock")
+                if (textBlock.Name!= "timeTextBlock" && textBlock.Name!= "matchesFoundLabel")
                 {
                     textBlock.Visibility = Visibility.Visible;
                     int index = random.Next(animalEmoji.Count);
@@ -89,6 +90,7 @@ namespace MatchingGame
                 textBlock.Visibility = Visibility.Hidden;
                 findingMatch = false;
                 matchesFound++;
+                matchesFoundLabel.Text = Convert.ToString(matchesFound);
             }
             else
             {
@@ -99,6 +101,7 @@ namespace MatchingGame
 
         private void TimeTextBlock_MouseDown(object sender, MouseButtonEventArgs e)
         {
+
             if (matchesFound == 8)
             {
                 SetupGame();
