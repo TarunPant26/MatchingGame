@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Input;
 
 namespace MatchingGame
 {
@@ -11,6 +12,8 @@ namespace MatchingGame
     /// </summary>
     public partial class MainWindow : Window
     {
+        TextBlock lastTextBlockClicked;
+        bool findingMatch = false;
         public MainWindow()
         {
             InitializeComponent();
@@ -40,6 +43,11 @@ namespace MatchingGame
                 textBlock.Text = nextEmoji;
                 animalEmoji.RemoveAt(index);
             }
+        }
+
+        private void TextBlock_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+
         }
     }
 }
